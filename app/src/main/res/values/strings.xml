@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Gallin IPP</string>
+    <string name="action_settings">Settings</string>
+    <string name="GALLIN">GALLIN</string>
+    <string name="Encuesta">Encuesta</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidop">Apellido Paterno</string>
+    <string name="apellidom">Apellido materno</string>
+    <string name="correoe">Correo electronico</string>
+    <string name="nivel">Nivel academico</string>
+    <string name="continuar">Continuar</string>
+    <string name="title_activity_lluvia">Fuentes de información</string>
+
+    <string name="feedbacktype1">Licenciatura</string>
+    <string name="feedbacktype2">Especialidad</string>
+    <string name="feedbacktype3">Maestria</string>
+    <string name="feedbacktype4">Doctorado</string>
+
+    <string name="recursobusqueda1">Libros</string>
+    <string name="recursobusqueda2">Revistas</string>
+    <string name="recursobusqueda3">Bases de datos</string>
+    <string name="recursobusqueda4">Metabuscadores</string>
+    <string name="title_activity_vocabulario_">Vocabulario</string>
+</resources>

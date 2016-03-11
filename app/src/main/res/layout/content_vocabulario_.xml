@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="efrain.org.mx.gallinp2.vocabulario_Activity"
+    tools:showIn="@layout/activity_vocabulario_">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿DE DONDE OBTIENES TU VOCABULARIO?"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fuentesRadioGroup">
+        <RadioButton
+            android:id="@+id/vocabulario_controlado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vocabulario controlado"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Diccionarios"
+            android:textSize="20sp"
+            android:id="@+id/diccionarios" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Tesauros"
+            android:textSize="20sp"
+            android:id="@+id/tesauros" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Ontologias"
+            android:textSize="20sp"
+            android:id="@+id/ontologias" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Encabezamientos de material"
+            android:textSize="20sp"
+            android:id="@+id/encabezamientos" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Palabras clave"
+            android:textSize="20sp"
+            android:id="@+id/palabras_clave" />
+
+        <RadioButton
+            android:id="@+id/lenguaje_natural"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lenguaje natural"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Mi ortografia no es buena"
+            android:textSize="20sp"
+            android:id="@+id/faltas_ortograficas" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Mi sintaxis no es buena"
+            android:textSize="20sp"
+            android:id="@+id/faltas_sintaxis" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Falsos cognados"
+            android:textSize="20sp"
+            android:id="@+id/falsos_cognados" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/contButton"
+            android:layout_height="wrap_content"
+            android:text="CONTINUAR"
+            android:textSize="20sp"
+            android:onClick="sendInfo"
+            android:layout_width="fill_parent">
+        </Button>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LluviaActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/Encuesta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ENCUESTA INICIAL"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:padding="2px" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nombres"
+                android:hint="Nombres"
+                android:inputType="textPersonName"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/apaterno"
+                android:hint="Apellido paterno"
+                android:inputType="textPersonName"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/amaterno"
+                android:hint="Apellido materno"
+                android:inputType="textPersonName"/>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/correoe"
+                android:hint="Correo electronico"
+                  android:inputType="textPersonName"/>
+            <TextView
+                android:id="@+id/nivel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIVEL"
+                android:textSize="30px"
+                android:padding="2px" />
+            <Spinner
+                android:id="@+id/SpinnerFeedbackType"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:entries="@array/feedbacktypelist">
+            </Spinner>
+            <Button
+                android:id="@+id/contButton"
+                android:layout_height="wrap_content"
+                android:text="CONTINUAR"
+                android:onClick="sendInfo"
+                android:layout_width="fill_parent">
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

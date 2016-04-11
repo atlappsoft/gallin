@@ -92,7 +92,7 @@ public class OpenGLRenderer1 implements Renderer{
 
         cuadrante.draw(gl);
         //punto.draw(gl);
-        //resultadoX = punto.getX_recurso();
+        resultadoX = punto.getX_recurso();
         //gltext.dibujaEtiquetas();
         this.dibujaTexto(gl);
 

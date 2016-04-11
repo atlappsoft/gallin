@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿QUE RECURSOS DE BUSQUEDA UTILIZAS?"
+            android:text="What are your preferred library resources?"
             android:textSize="20dp"
             android:textAlignment="center"
             android:id="@+id/textRecursosView"
@@ -44,25 +44,25 @@
             <RadioButton
                 android:id="@+id/LibrosRadioButton"
                 android:layout_height="wrap_content"
-                android:text="LIBROS"
+                android:text="Books"
                 android:layout_width="fill_parent">
             </RadioButton>
             <RadioButton
                 android:id="@+id/RevistasRadioButton"
                 android:layout_height="wrap_content"
-                android:text="REVISTAS"
+                android:text="Journals"
                 android:layout_width="fill_parent">
             </RadioButton>
             <RadioButton
                 android:id="@+id/BasesDatosRadioButton"
                 android:layout_height="wrap_content"
-                android:text="BASES DE DATOS"
+                android:text="Databases"
                 android:layout_width="fill_parent">
             </RadioButton>
             <RadioButton
                 android:id="@+id/MetaBuscadoresRadioButton"
                 android:layout_height="wrap_content"
-                android:text="METABUSCADORES"
+                android:text="Metasearch engines"
                 android:layout_width="fill_parent">
             </RadioButton>
         </RadioGroup>
@@ -70,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿DE QUE LUGARES OBTIENES ESTOS RECURSOS?"
+            android:text="From what places do you get these resources?"
             android:textSize="20dp"
             android:textAlignment="center"
             android:id="@+id/textFuentesView"
@@ -89,13 +89,13 @@
             <RadioButton
                 android:id="@+id/bibliotecasBDRadioButton"
                 android:layout_height="wrap_content"
-                android:text="Bibliotecas universitarias, catalogos indexados, bases de datos académicas, etc."
+                android:text="University libraries, indexed catalogs, academic databases, etc."
                 android:layout_width="fill_parent">
             </RadioButton>
             <RadioButton
                 android:id="@+id/googleOtrosRadioButton"
                 android:layout_height="wrap_content"
-                android:text="Google, wikipedia, yahoo, otros buscadores similares"
+                android:text="Google, Wikipedia, Yahoo, other search engines"
                 android:layout_width="fill_parent">
             </RadioButton>
         </RadioGroup>
@@ -110,13 +110,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/regresarButton"
-                    android:text="REGRESAR"
+                    android:text="BACK"
                     android:onClick="sendBack"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/contButton"
-                    android:text="CONTINUAR"
+                    android:text="CONTINUE"
                     android:onClick="sendInfo"/>
             </TableRow>
         </TableLayout>

@@ -15,8 +15,8 @@ public class GIPPMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gippmain);
         mensajeInicial = (TextView)findViewById(R.id.TextoInicial);
-        mensajeInicial.setText(Html.fromHtml("<h3 style='text-align:center;'>Graficador de Lluvia Linguistica</h3>"
-                + "<div style='padding: 5px; text-align: center;'>Instrumento Posicionador Personal</div>" +
+        mensajeInicial.setText(Html.fromHtml("<h3 style='text-align:center;'>Librarian Positioning System (LPS)</h3>"
+                + "<div style='padding: 5px; text-align: center;'>Research Location Positioner</div>" +
                 "<div style='padding: 5px; text-align: center;'>Through the following interactive \n" +
                 "screens you will 3 facts: get self located\n" +
                 "as a library user (in comparison to Google);\n" +

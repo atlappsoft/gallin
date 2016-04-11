@@ -35,14 +35,14 @@ public class LluviaActivity extends AppCompatActivity {
         fuenteRec = (RadioGroup)findViewById(R.id.fuenteRecRadioGroups);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     public void sendInfo(View view) {
@@ -62,10 +62,10 @@ public class LluviaActivity extends AppCompatActivity {
         if(recurso != libros.getId() & recurso != revistas.getId() & recurso != basesd.getId()
                 & recurso != metab.getId()){
 
-            Toast.makeText(LluviaActivity.this,"Elija un recurso",Toast.LENGTH_LONG).show();
+            Toast.makeText(LluviaActivity.this,"Choose a resource",Toast.LENGTH_LONG).show();
         } else if(fuenteRecursos != googleOtros.getId() & fuenteRecursos != bibliotecasDB.getId()){
 
-            Toast.makeText(LluviaActivity.this,"Elija una fuente de recursos",Toast.LENGTH_LONG).show();
+            Toast.makeText(LluviaActivity.this,"Choose a source",Toast.LENGTH_LONG).show();
         } else {
             switch (recurso){
                 case R.id.LibrosRadioButton:

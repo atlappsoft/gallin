@@ -25,14 +25,14 @@ public class vocabulario_Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     public void sendInfo(View view){
@@ -42,7 +42,7 @@ public class vocabulario_Activity extends AppCompatActivity {
         String fuente_select = new String();
 
         if(opc != voc_control.getId() & opc != leng_nat.getId()){
-            Toast.makeText(vocabulario_Activity.this, "Elija un valor", Toast.LENGTH_LONG).show();
+            Toast.makeText(vocabulario_Activity.this, "Choose a value", Toast.LENGTH_LONG).show();
         } else {
             switch (opc){
                 case R.id.vocabulario_controlado:

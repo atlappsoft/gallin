@@ -72,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
     public void sendInfo(View view){
 
         if ((nombres.getText().toString()).isEmpty()){
-            nombres.setError("Este campo es obligatorio");
+            nombres.setError("This field is mandatory");
         } else if ((email.getText().toString()).isEmpty()){
-            email.setError("Este campo es obligatorio");
+            email.setError("This field is mandatory");
         } else if (nivel.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(MainActivity.this,"Elige un nivel",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,"Choose a level",Toast.LENGTH_LONG).show();
         } else {
 
             Intent intent = new Intent(this, LluviaActivity.class);

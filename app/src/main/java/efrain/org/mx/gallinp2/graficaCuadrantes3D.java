@@ -16,13 +16,13 @@ public class graficaCuadrantes3D {
     private Bundle info;
     // Our vertices.
     private float vertices[] = {
-            1.0f,  0.0f, 0.0f,  // Eje x
-            0.0f, 1.0f, 0.0f,  // Eje y
-            0.0f, 0.0f, 1.0f,  // Eje z
+            200.0f,  0.0f, 0.0f,  // Eje x
+            0.0f, 200.0f, 0.0f,  // Eje y
+            0.0f, 0.0f, 200.0f,  // Eje z
             0.0f,  0.0f, 0.0f,  // Origen
-            -1.0f,  0.0f, 0.0f,  // Eje -x
-            0.0f, -1.0f, 0.0f,  // Eje -y
-            0.0f, 0.0f, -1.0f,  // Eje -z
+            -200.0f,  0.0f, 0.0f,  // Eje -x
+            0.0f, -200.0f, 0.0f,  // Eje -y
+            0.0f, 0.0f, -200.0f,  // Eje -z
     };
     // The order we like to connect them.
     private short[] indices = { 3, 0, 3, 1, 3, 2, 3, 4, 3, 5, 3, 6};
@@ -70,7 +70,7 @@ public class graficaCuadrantes3D {
         // coordinates to use when rendering.
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
                 vertexBuffer);
-        gl.glLineWidth(3.0f);
+        gl.glLineWidth(2.0f);
         gl.glDrawElements(GL10.GL_LINES, indices.length,
                 GL10.GL_UNSIGNED_SHORT, indexBuffer);
 

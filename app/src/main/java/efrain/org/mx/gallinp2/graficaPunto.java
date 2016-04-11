@@ -53,7 +53,7 @@ public class graficaPunto {
     }
 
     public float getX_recurso(){
-        return x_recurso;
+        return this.x_recurso;
     }
 
     /**
@@ -66,44 +66,44 @@ public class graficaPunto {
         z_voc = 0.0f;
 
         switch (nivel){
-            case "Licenciatura":
-                y_nivel = 0.2f;
+            case "Bachelor\'s degree":
+                y_nivel = 50.0f;
                 break;
-            case "Especialidad":
-                y_nivel = 0.4f;
+            case "Specialty":
+                y_nivel = 100.0f;
                 break;
-            case "Maestria":
-                y_nivel = 0.6f;
+            case "Master\'s degree":
+                y_nivel = 150.0f;
                 break;
-            case "Doctorado":
-                y_nivel = 0.8f;
+            case "Doctorate":
+                y_nivel = 190.0f;
                 break;
         }
 
         switch (recurso){
-            case "LIBROS":
-                x_recurso = 0.2f;
+            case "Books":
+                x_recurso = 50.0f;
                 break;
-            case "REVISTAS":
-                x_recurso = 0.4f;
+            case "Journals":
+                x_recurso = 100.0f;
                 break;
-            case "BASES DE DATOS":
-                x_recurso = 0.6f;
+            case "Databases":
+                x_recurso = 150.0f;
                 break;
-            case "METABUSCADORES":
-                x_recurso = 0.8f;
+            case "Metasearch engines":
+                x_recurso = 190.0f;
         }
 
         switch (fuente_voc){
-            case "Vocabulario controlado":
-                z_voc = 0.5f;
+            case "CONTROLLED VOCABULARY":
+                z_voc = 100.0f;
                 break;
-            case "Lenguaje natural":
-                z_voc = -0.5f;
+            case "Natural Language":
+                z_voc = -100.0f;
                 break;
         }
         switch (fuente_rec){
-            case "Google, wikipedia, yahoo, otros buscadores similares":
+            case "Google, Wikipedia, Yahoo, other search engines":
                 x_recurso = x_recurso*-1;
                 break;
         }

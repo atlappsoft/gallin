@@ -11,14 +11,14 @@
     <string name="continuar">Continuar</string>
     <string name="title_activity_lluvia">Fuentes de información</string>
 
-    <string name="feedbacktype1">Licenciatura</string>
-    <string name="feedbacktype2">Especialidad</string>
-    <string name="feedbacktype3">Maestria</string>
-    <string name="feedbacktype4">Doctorado</string>
+    <string name="feedbacktype1">Bachelor\'s degree</string>
+    <string name="feedbacktype2">Specialty</string>
+    <string name="feedbacktype3">Master\'s degree</string>
+    <string name="feedbacktype4">Doctorate</string>
 
-    <string name="recursobusqueda1">Libros</string>
-    <string name="recursobusqueda2">Revistas</string>
-    <string name="recursobusqueda3">Bases de datos</string>
-    <string name="recursobusqueda4">Metabuscadores</string>
+    <string name="recursobusqueda1">Books</string>
+    <string name="recursobusqueda2">Journals</string>
+    <string name="recursobusqueda3">Databases</string>
+    <string name="recursobusqueda4">Metasearch engines</string>
     <string name="title_activity_vocabulario_">Vocabulario</string>
 </resources>

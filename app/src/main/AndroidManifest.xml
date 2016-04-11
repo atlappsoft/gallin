@@ -2,13 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="efrain.org.mx.gallinp2">
 
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21"/>
+
+    <supports-screens android:compatibleWidthLimitDp="320"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:debuggable="true">
+        android:theme="@style/AppTheme">
 
         <activity
             android:name=".MainActivity"
@@ -25,7 +30,8 @@
             android:label="@string/title_activity_vocabulario_"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".glGrafica_Activity" />
+        <activity android:name=".glGrafica_Activity"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".GIPPMainActivity"
             android:label="@string/app_name"

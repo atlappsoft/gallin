@@ -7,12 +7,15 @@ import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class GIPPMainActivity extends AppCompatActivity {
 
     TextView mensajeInicial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String lang = Locale.getDefault().getDisplayLanguage();
         setContentView(R.layout.activity_gippmain);
         mensajeInicial = (TextView)findViewById(R.id.TextoInicial);
         mensajeInicial.setText(Html.fromHtml("<h3 style='text-align:center;'>Librarian Positioning System (LPS)</h3>"

@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.opengl.GLSurfaceView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -18,18 +19,31 @@ public class glGrafica_Activity extends AppCompatActivity {
 
     private GALLINSurfaceView view;
     public static TextView mensaje;
+    public static final String Lic = "Lic";
+    public static final String Esp = "Esp";
+    public static final String Maest = "Maest";
+    public static final String Doc = "Doc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent encuestasAnt = getIntent();
         Bundle info = encuestasAnt.getExtras();
+        String lic = getResources().getString(R.string.feedbacktype1);
+        String esp = getResources().getString(R.string.feedbacktype2);
+        String maest = getResources().getString(R.string.feedbacktype3);
+        String doc = getResources().getString(R.string.feedbacktype4);
+        info.putString(Lic,lic);
+        info.putString(Esp,esp);
+        info.putString(Maest,maest);
+        info.putString(Doc,doc);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); // (NEW)
-        Display dsp = getWindowManager().getDefaultDisplay();
         Point size = new Point();
-        dsp.getSize(size);
-        //Toast.makeText(glGrafica_Activity.this, "w: "+size.x+" h: "+size.y,Toast.LENGTH_LONG).show();
+        DisplayMetrics metricas = getResources().getDisplayMetrics();
+        float dpix = metricas.xdpi;
+        float dpiy = metricas.ydpi;
+        Toast.makeText(glGrafica_Activity.this, "w: "+dpix+" h: "+dpiy,Toast.LENGTH_LONG).show();
 
         FrameLayout frmLayout = new FrameLayout(this);
         RelativeLayout rlayout = new RelativeLayout(this);
@@ -44,9 +58,6 @@ public class glGrafica_Activity extends AppCompatActivity {
         rlayout.addView(mensaje);
         setContentView(rlayout);
 
-        String nivel = info.getString(MainActivity.NIVEL);
-        String recurso = info.getString(LluviaActivity.RECURSO);
-        String voc = info.getString(vocabulario_Activity.FUENTE_VOC);
     }
 
     @Override

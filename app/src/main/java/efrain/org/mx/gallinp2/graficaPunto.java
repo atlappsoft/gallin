@@ -19,6 +19,10 @@ public class graficaPunto {
     private String recurso;
     private String fuente_rec;
     private String fuente_voc;
+    private String lic;
+    private String esp;
+    private String maest;
+    private String doc;
     private float x_recurso;
     private float y_nivel;
     private float z_voc;
@@ -42,6 +46,11 @@ public class graficaPunto {
         recurso = info.getString(LluviaActivity.RECURSO);
         fuente_voc = info.getString(vocabulario_Activity.FUENTE_VOC);
         fuente_rec = info.getString(LluviaActivity.FUENTE_REC);
+        lic = info.getString(glGrafica_Activity.Lic);
+        esp = info.getString(glGrafica_Activity.Esp);
+        maest = info.getString(glGrafica_Activity.Maest);
+        doc = info.getString(glGrafica_Activity.Doc);
+
 
         // short is 2 bytes, therefore we multiply the number if
         // vertices with 2.
@@ -65,20 +74,16 @@ public class graficaPunto {
         y_nivel = 0.0f;
         z_voc = 0.0f;
 
-        switch (nivel){
-            case "Bachelor\'s degree":
-                y_nivel = 50.0f;
-                break;
-            case "Specialty":
-                y_nivel = 100.0f;
-                break;
-            case "Master\'s degree":
-                y_nivel = 150.0f;
-                break;
-            case "Doctorate":
-                y_nivel = 190.0f;
-                break;
+        if(nivel.equals(lic)){
+            y_nivel = 50.0f;
+        } else if(nivel.equals(esp)){
+            y_nivel = 100.0f;
+        } else if(nivel.equals(maest)){
+            y_nivel = 150.0f;
+        } else if(nivel.equals(doc)){
+            y_nivel = 190.0f;
         }
+
 
         switch (recurso){
             case "Books":

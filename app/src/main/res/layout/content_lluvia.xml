@@ -100,26 +100,12 @@
             </RadioButton>
         </RadioGroup>
 
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:stretchColumns="0.1"
-            android:layout_marginTop="20dp">
-            <TableRow>
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/regresarButton"
-                    android:text="BACK"
-                    android:onClick="sendBack"/>
-                <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/contButton"
-                    android:text="CONTINUE"
+                    android:text="@string/continuar"
                     android:onClick="sendInfo"/>
-            </TableRow>
-        </TableLayout>
     </LinearLayout>
     </ScrollView>
 

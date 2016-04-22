@@ -69,7 +69,7 @@
             <Button
                 android:id="@+id/contButton"
                 android:layout_height="wrap_content"
-                android:text="CONTINUE"
+                android:text="@string/continuar"
                 android:onClick="sendInfo"
                 android:layout_width="fill_parent">
             </Button>

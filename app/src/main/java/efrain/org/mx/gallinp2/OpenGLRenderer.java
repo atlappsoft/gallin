@@ -148,7 +148,7 @@ public class OpenGLRenderer implements Renderer{
 
         // TEST: render the entire font texture
         gl.glColor4f(1.0f, 1.0f, 1.0f, 0.5f);         // Set Color to Use
-        glText.drawTexture( (int)Width, (int)Heigth, 0 );            // Draw the Entire Texture
+        //glText.drawTexture( (int)Width, (int)Heigth, 0 );            // Draw the Entire Texture
 
         // TEST: render some strings with the font
         glText.begin(1.0f, 0.0f, 0.0f, 1.0f);         // Begin Text Rendering (Set Color WHITE)

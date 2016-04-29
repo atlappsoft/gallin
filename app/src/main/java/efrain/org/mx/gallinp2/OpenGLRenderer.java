@@ -62,6 +62,7 @@ public class OpenGLRenderer implements Renderer{
         gl.glEnable(GL10.GL_DEPTH_TEST);
         // The type of depth testing to do.
         gl.glDepthFunc(GL10.GL_LEQUAL);
+        gl.glDisable(GL10.GL_DITHER);
         // Really nice perspective calculations.
         gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
                 GL10.GL_NICEST);

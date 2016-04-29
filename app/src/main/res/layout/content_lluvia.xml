@@ -23,11 +23,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="What are your preferred library resources?"
             android:textSize="20dp"
             android:textAlignment="center"
+            android:textStyle="bold"
             android:id="@+id/textRecursosView"
             android:layout_below="@+id/textLluvia"
             android:layout_alignParentLeft="true"
@@ -68,11 +69,12 @@
         </RadioGroup>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="From what places do you get these resources?"
             android:textSize="20dp"
             android:textAlignment="center"
+            android:textStyle="bold"
             android:id="@+id/textFuentesView"
             android:layout_below="@+id/textLluvia"
             android:layout_alignParentLeft="true"
@@ -88,15 +90,17 @@
             android:layout_marginTop="30dp">
             <RadioButton
                 android:id="@+id/bibliotecasBDRadioButton"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="University libraries, indexed catalogs, academic databases, etc."
-                android:layout_width="fill_parent">
+                android:padding="5dp">
             </RadioButton>
             <RadioButton
                 android:id="@+id/googleOtrosRadioButton"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Google, Wikipedia, Yahoo, other search engines"
-                android:layout_width="fill_parent">
+                android:padding="5dp">
             </RadioButton>
         </RadioGroup>
 
@@ -105,7 +109,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/contButton"
                     android:text="@string/continuar"
-                    android:onClick="sendInfo"/>
+                    android:onClick="sendInfo"
+                    android:padding="7dp"/>
     </LinearLayout>
     </ScrollView>
 

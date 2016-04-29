@@ -22,11 +22,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="WHERE do you get your search words?"
             android:textSize="20sp"
-            android:textAlignment="center"/>
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="10dp"/>
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -36,73 +38,87 @@
             android:id="@+id/vocabulario_controlado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CONTROLLED VOCABULARY"
-            android:textSize="20sp"/>
+            android:text="Controlled Vocabulary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* Specialized Dictionaries"
             android:textSize="20sp"
-            android:id="@+id/diccionarios" />
+            android:id="@+id/diccionarios"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* Thesaurus"
             android:textSize="20sp"
-            android:id="@+id/tesauros" />
+            android:id="@+id/tesauros"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* Ontologies"
             android:textSize="20sp"
-            android:id="@+id/ontologias" />
+            android:id="@+id/ontologias"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* Subject Headings"
             android:textSize="20sp"
-            android:id="@+id/encabezamientos" />
+            android:id="@+id/encabezamientos"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* Key words"
             android:textSize="20sp"
-            android:id="@+id/palabras_clave" />
+            android:id="@+id/palabras_clave"
+            android:padding="5dp"/>
 
         <RadioButton
             android:id="@+id/lenguaje_natural"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Natural Language"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* My spelling is not good"
             android:textSize="20sp"
-            android:id="@+id/faltas_ortograficas" />
+            android:id="@+id/faltas_ortograficas"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* My syntax is not good"
             android:textSize="20sp"
-            android:id="@+id/faltas_sintaxis" />
+            android:id="@+id/faltas_sintaxis"
+            android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="* Coincidental words"
             android:textSize="20sp"
-            android:id="@+id/falsos_cognados" />
+            android:id="@+id/falsos_cognados"
+            android:padding="5dp"/>
         </RadioGroup>
 
         <Button
             android:id="@+id/contButton"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="@string/continuar"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:onClick="sendInfo"
-            android:layout_width="fill_parent">
+            android:layout_margin="10dp"
+            android:padding="10dp">
         </Button>
 
         </LinearLayout>

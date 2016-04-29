@@ -25,7 +25,7 @@ public class GIPPMainActivity extends AppCompatActivity {
                 "as a library user (in comparison to Google);\n" +
                 "get to know the high qualified academic \n" +
                 "databases of your field of knowledge, and\n" +
-                "will be able to build a resarch purpose \n" +
+                "will be able to build a research purpose \n" +
                 "and explode it.\n</div>"));
     }
 

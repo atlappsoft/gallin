@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".LluviaActivity"
+    tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
 
@@ -18,60 +18,69 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical">
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/Encuesta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Registry survey"
                 android:textSize="20dp"
                 android:textAlignment="center"
-                android:padding="2px" />
+                android:textStyle="bold"
+                android:padding="7dp" />
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/nombres"
                 android:hint="Name(s)"
                 android:inputType="textPersonName"/>
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/apaterno"
                 android:hint="Last name"
                 android:inputType="textPersonName"/>
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/amaterno"
                 android:hint="Mother's last name"
                 android:inputType="textPersonName"/>
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/correoe"
-                android:hint="E-mail"
+                android:hint="mymail@something.com"
                   android:inputType="textPersonName"/>
             <TextView
                 android:id="@+id/nivel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level"
-                android:textSize="30px"
-                android:padding="2px" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="Academic Level"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:padding="7dp" />
             <Spinner
                 android:id="@+id/SpinnerFeedbackType"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:entries="@array/feedbacktypelist">
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:entries="@array/feedbacktypelist"
+                android:textAlignment="center"
+                android:padding="10dp">
             </Spinner>
             <Button
                 android:id="@+id/contButton"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
                 android:text="@string/continuar"
                 android:onClick="sendInfo"
-                android:layout_width="fill_parent">
+                android:padding="10dp">
             </Button>
         </LinearLayout>
     </ScrollView>

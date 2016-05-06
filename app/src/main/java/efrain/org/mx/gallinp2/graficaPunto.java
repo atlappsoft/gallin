@@ -100,7 +100,7 @@ public class graficaPunto {
         }
 
         switch (fuente_voc){
-            case "CONTROLLED VOCABULARY":
+            case "Controlled Vocabulary":
                 z_voc = 100.0f;
                 break;
             case "Natural Language":

@@ -43,7 +43,6 @@ public class glGrafica_Activity extends AppCompatActivity {
         DisplayMetrics metricas = getResources().getDisplayMetrics();
         float dpix = metricas.xdpi;
         float dpiy = metricas.ydpi;
-        Toast.makeText(glGrafica_Activity.this, "w: "+dpix+" h: "+dpiy,Toast.LENGTH_LONG).show();
 
         FrameLayout frmLayout = new FrameLayout(this);
         RelativeLayout rlayout = new RelativeLayout(this);

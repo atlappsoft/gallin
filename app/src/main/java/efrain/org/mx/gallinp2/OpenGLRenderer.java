@@ -124,7 +124,8 @@ public class OpenGLRenderer implements Renderer{
         // Reset the projection matrix
         gl.glLoadIdentity();
         // Calculate The Aspect Ratio Of The Window
-        GLU.gluPerspective(gl, fov_degrees, aspect, camZ / 4, camZ * 10);
+        //GLU.gluPerspective(gl, fov_degrees, aspect, camZ / 4, camZ * 10);
+        gl.glOrthof(-270.0f,270.0f,-350.0f,350.0f,camZ / 5 , camZ * 10);
         GLU.gluLookAt(gl, 0, 0, deepFactor1, 0, 0, 0, 0, 1, 0); // move camera back
         // Select the modelview matrix
         gl.glMatrixMode(GL10.GL_MODELVIEW);

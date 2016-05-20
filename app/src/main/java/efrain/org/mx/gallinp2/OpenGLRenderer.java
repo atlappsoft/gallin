@@ -20,11 +20,12 @@ public class OpenGLRenderer implements Renderer{
     private graficaCuadrantes3D cuadrante;
     private graficaPunto punto;
     private Bundle info;
-    private float resultadoX;
+    //private float resultadoX;
     private GLText glText;
+    private GLText glEtiquetas;
     private Context context;
-    private float Width;
-    private float Heigth;
+    //private float Width;
+    //private float Heigth;
     public static float fov_degrees =  45f;
     public static float fov_radians =  fov_degrees / 180 * (float) Math.PI;
     public static float aspect;
@@ -33,12 +34,8 @@ public class OpenGLRenderer implements Renderer{
     public OpenGLRenderer(Bundle i, Context ctxt, float x, float y){
         info = i;
         context = ctxt;
-        Width = x;
-        Heigth = y;
-    }
-
-    public float getResultadoX(){
-        return this.resultadoX;
+        //Width = x;
+        //Heigth = y;
     }
 
     public float getCamZ(){ return camZ; }
@@ -70,6 +67,8 @@ public class OpenGLRenderer implements Renderer{
 
         glText = new GLText( gl, context.getAssets() );
         glText.load("Roboto-Regular.ttf", 18, 2, 2);  // Create Font (Height: 14 Pixels / X+Y Padding 2 Pixels)
+        glEtiquetas = new GLText( gl, context.getAssets() );
+        glEtiquetas.load("Roboto-Regular.ttf", 14, 2, 2);
         cuadrante = new graficaCuadrantes3D(info);
         punto = new graficaPunto(info);
     }
@@ -94,11 +93,9 @@ public class OpenGLRenderer implements Renderer{
         gl.glRotatef(30f, 1.0f, 0.0f, 0.0f);
         gl.glRotatef(-25f, 0.0f, 1.0f, 0.0f);
 
-
         cuadrante.draw(gl);
         punto.draw(gl);
-        resultadoX = punto.getX_recurso();
-        this.dibujaTexto(gl, resultadoX);
+        this.dibujaTexto(gl, punto.getX_recurso());
     }
 
     /*
@@ -134,11 +131,7 @@ public class OpenGLRenderer implements Renderer{
     }
 
     private void dibujaTexto(GL10 gl, float rx){
-        // Redraw background color
-        //gl.glClear( GL10.GL_COLOR_BUFFER_BIT );
-
-        // Set to ModelView mode
-        gl.glMatrixMode( GL10.GL_MODELVIEW );           // Activate Model View Matrix
+                gl.glMatrixMode( GL10.GL_MODELVIEW );           // Activate Model View Matrix
         gl.glLoadIdentity();                            // Load Identity Matrix
 
         // enable texture + alpha blending
@@ -153,7 +146,7 @@ public class OpenGLRenderer implements Renderer{
         //glText.drawTexture( (int)Width, (int)Heigth, 0 );            // Draw the Entire Texture
 
         // TEST: render some strings with the font
-        glText.begin(1.0f, 0.0f, 0.0f, 1.0f);         // Begin Text Rendering (Set Color WHITE)
+        glText.begin(1.0f, 1.0f, 1.0f, 1.0f);         // Begin Text Rendering (Set Color WHITE)
         glText.draw( "ACADEMIC LEVEL", -50.0f, 220.0f, 0.0f );              // Draw Test String
         glText.draw( "RESOURCES", 140.0f, -70.0f, 0.0f);
         glText.draw("VOCABULARY", -140.0f, -150.0f, 0.0f);
@@ -163,6 +156,7 @@ public class OpenGLRenderer implements Renderer{
             glText.draw("Congratualtions, you are beyond any search engine!", -200.0f, 320.0f, 0.0f);
             glText.draw("Improve your state by attending the library´s staff!", -200.0f, 300.0f, 0.0f);
         }
+
         glText.end();                                   // End Text Rendering
 
         // disable texture + alpha

@@ -25,8 +25,8 @@ public class graficaPunto {
     private String doc;
     private float x_recurso;
     private float y_nivel;
-    private float z_voc;
 
+    private float z_voc;
     // Our vertices.
     private float vertices[] = {
             0.2f,  0.2f, 0.5f
@@ -61,8 +61,28 @@ public class graficaPunto {
         indexBuffer.position(0);
     }
 
+    /**
+     * Devuelve el valor de x del punto.
+     * @return
+     */
     public float getX_recurso(){
         return this.x_recurso;
+    }
+
+    /**
+     * Devuelve el valor y del punto.
+     * @return
+     */
+    public float getY_nivel(){
+        return y_nivel;
+    }
+
+    /**
+     * Devuelve el valor z del punto.s
+     * @return
+     */
+    public float getZ_voc() {
+        return z_voc;
     }
 
     /**

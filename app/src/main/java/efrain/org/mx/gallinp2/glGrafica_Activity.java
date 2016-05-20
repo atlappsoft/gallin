@@ -79,8 +79,4 @@ class GALLINSurfaceView extends GLSurfaceView {
         setRenderer(render);
     }
 
-    public float getRecurso() {
-        return render.getResultadoX();
-    }
-
 }

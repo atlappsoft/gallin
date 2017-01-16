@@ -25,7 +25,6 @@ public class graficaPunto {
     private String doc;
     private float x_recurso;
     private float y_nivel;
-
     private float z_voc;
     // Our vertices.
     private float vertices[] = {

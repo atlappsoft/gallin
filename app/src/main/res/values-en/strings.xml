@@ -21,4 +21,6 @@
     <string name="recursobusqueda3">Databases</string>
     <string name="recursobusqueda4">Metasearch engines</string>
     <string name="title_activity_vocabulario_">Vocabulary</string>
+    <string name="salva">SAVE IT</string>
+    <string name="compara">COMPARE IT</string>
 </resources>

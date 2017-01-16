@@ -105,12 +105,14 @@
         </RadioGroup>
 
                 <Button
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/contButton"
                     android:text="@string/continuar"
                     android:onClick="sendInfo"
-                    android:padding="7dp"/>
+                    android:padding="10dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_gravity="center"/>
     </LinearLayout>
     </ScrollView>
 

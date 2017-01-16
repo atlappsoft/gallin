@@ -146,9 +146,6 @@ public class GLText {
       gl.glDisable( GL10.GL_TEXTURE_2D );             // Disable Texture Mapping
    }
 
-
-
-
    //--Load Font--//
    // description
    //    this will load the specified font file, create a texture for the defined

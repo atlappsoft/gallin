@@ -72,15 +72,17 @@
                 android:layout_width="match_parent"
                 android:entries="@array/feedbacktypelist"
                 android:textAlignment="center"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:layout_marginBottom="7dp">
             </Spinner>
             <Button
                 android:id="@+id/contButton"
                 android:layout_height="match_parent"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:text="@string/continuar"
                 android:onClick="sendInfo"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:layout_gravity="center">
             </Button>
         </LinearLayout>
     </ScrollView>

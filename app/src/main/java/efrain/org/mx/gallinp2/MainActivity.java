@@ -1,6 +1,8 @@
 package efrain.org.mx.gallinp2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +22,8 @@ import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static efrain.org.mx.gallinp2.GIPPMainActivity.GALLININFO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         email = (EditText)findViewById(R.id.correoe);
         nivel = (Spinner)findViewById(R.id.SpinnerFeedbackType);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        SharedPreferences infoAnterior =getApplicationContext().getSharedPreferences(GALLININFO, Context.MODE_PRIVATE);
+        if(infoAnterior.contains(NOMBRES)
+                & infoAnterior.contains(CORREOE)){
+            nombres.setText(infoAnterior.getString(NOMBRES,""));
+            apellidop.setText(infoAnterior.getString(AP,""));
+            apellidom.setText(infoAnterior.getString(AM,""));
+            email.setText(infoAnterior.getString(CORREOE,""));
+            //nivel.setSelection();
+        }
         setSupportActionBar(toolbar);
 
     }

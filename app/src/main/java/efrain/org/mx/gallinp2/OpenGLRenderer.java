@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 /**
  * Created by efrain on 15/02/16.
  */
@@ -19,11 +21,13 @@ public class OpenGLRenderer implements Renderer{
 
     private graficaCuadrantes3D cuadrante;
     private graficaPunto punto;
+    //private graficaBoton botonSalvar;
     private Bundle info;
     //private float resultadoX;
     private GLText glText;
     private GLText glEtiquetas;
     private Context context;
+    private ArrayList<Integer> puntos;
     //private float Width;
     //private float Heigth;
     public static float fov_degrees =  45f;
@@ -34,8 +38,12 @@ public class OpenGLRenderer implements Renderer{
     public OpenGLRenderer(Bundle i, Context ctxt, float x, float y){
         info = i;
         context = ctxt;
-        //Width = x;
-        //Heigth = y;
+    }
+
+    public OpenGLRenderer(ArrayList<Integer> vectores, Bundle i, Context ctxt, float x, float y){
+        info = i;
+        context = ctxt;
+        puntos = vectores;
     }
 
     public float getCamZ(){ return camZ; }
@@ -50,7 +58,7 @@ public class OpenGLRenderer implements Renderer{
 	 */
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         // Set the background color to black ( rgba ).
-        gl.glClearColor(0.0f, 0.7f, 0.7f, 0.5f);
+        gl.glClearColor(0.2f, 0.6f, 1.0f, 0.5f);
         // Enable Smooth Shading, default not really needed.
         gl.glShadeModel(GL10.GL_SMOOTH);
         // Depth buffer setup.
@@ -87,7 +95,6 @@ public class OpenGLRenderer implements Renderer{
                 GL10.GL_DEPTH_BUFFER_BIT);
         // Replace the current matrix with the identity matrix
         gl.glLoadIdentity();
-        //gl.glRotatef(45f,0.0f,0.0f,1.0f);
         // Translates 4 units into the screen.
         gl.glTranslatef(0, 0, -4);
         gl.glRotatef(30f, 1.0f, 0.0f, 0.0f);
@@ -95,6 +102,7 @@ public class OpenGLRenderer implements Renderer{
 
         cuadrante.draw(gl);
         punto.draw(gl);
+        //botonSalvar.draw(gl);
         this.dibujaTexto(gl, punto.getX_recurso());
     }
 
@@ -131,7 +139,7 @@ public class OpenGLRenderer implements Renderer{
     }
 
     private void dibujaTexto(GL10 gl, float rx){
-                gl.glMatrixMode( GL10.GL_MODELVIEW );           // Activate Model View Matrix
+        gl.glMatrixMode( GL10.GL_MODELVIEW );           // Activate Model View Matrix
         gl.glLoadIdentity();                            // Load Identity Matrix
 
         // enable texture + alpha blending
@@ -156,6 +164,7 @@ public class OpenGLRenderer implements Renderer{
             glText.draw("Congratualtions, you are beyond any search engine!", -200.0f, 320.0f, 0.0f);
             glText.draw("Improve your state by attending the library´s staff!", -200.0f, 300.0f, 0.0f);
         }
+        //glText.draw("SAVE",0.0f,-300.0f,0.0f);
 
         glText.end();                                   // End Text Rendering
 

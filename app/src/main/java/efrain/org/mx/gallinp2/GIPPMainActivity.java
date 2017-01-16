@@ -1,15 +1,25 @@
 package efrain.org.mx.gallinp2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
+import static efrain.org.mx.gallinp2.MainActivity.NOMBRES;
+import static efrain.org.mx.gallinp2.MainActivity.AP;
+import static efrain.org.mx.gallinp2.MainActivity.AM;
+import static efrain.org.mx.gallinp2.MainActivity.CORREOE;
+
 public class GIPPMainActivity extends AppCompatActivity {
+
+    public static final String GALLININFO = "gallininfo";
 
     TextView mensajeInicial;
     @Override
@@ -30,7 +40,19 @@ public class GIPPMainActivity extends AppCompatActivity {
     }
 
     public void sendToEncuesta(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        //SharedPreferences infoAnterior = getPreferences(Context.MODE_PRIVATE);
+        Intent intent = new Intent(this,MainActivity.class);
+        /*Toast.makeText(GIPPMainActivity.this,"Datos: "+NOMBRES+" "
+                +CORREOE,Toast.LENGTH_SHORT).show();
+        if(infoAnterior.contains(NOMBRES)
+                & infoAnterior.contains(CORREOE)){
+            intent = new Intent(this, InfoUsrActivity.class);
+            Toast.makeText(GIPPMainActivity.this,"Datos encontrados",Toast.LENGTH_SHORT).show();
+
+        } else {
+            intent = new Intent(this, MainActivity.class);
+            Toast.makeText(GIPPMainActivity.this,"No Datos",Toast.LENGTH_SHORT).show();
+        }*/
         startActivity(intent);
     }
 }

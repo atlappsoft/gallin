@@ -7,12 +7,14 @@ import android.content.Context;
 import android.opengl.GLU;
 import android.opengl.GLSurfaceView.Renderer;
 import android.os.Bundle;
+import efrain.org.mx.gallinp2.glGrafica_Activity.Vectores;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by efrain on 15/02/16.
@@ -20,16 +22,12 @@ import java.util.ArrayList;
 public class OpenGLRenderer implements Renderer{
 
     private graficaCuadrantes3D cuadrante;
-    private graficaPunto punto;
-    //private graficaBoton botonSalvar;
+    private ArrayList<graficaPunto> punto;
     private Bundle info;
-    //private float resultadoX;
     private GLText glText;
     private GLText glEtiquetas;
     private Context context;
-    private ArrayList<Integer> puntos;
-    //private float Width;
-    //private float Heigth;
+    private ArrayList<Vectores> puntos;
     public static float fov_degrees =  45f;
     public static float fov_radians =  fov_degrees / 180 * (float) Math.PI;
     public static float aspect;
@@ -40,7 +38,7 @@ public class OpenGLRenderer implements Renderer{
         context = ctxt;
     }
 
-    public OpenGLRenderer(ArrayList<Integer> vectores, Bundle i, Context ctxt, float x, float y){
+    public OpenGLRenderer(ArrayList<Vectores> vectores, Bundle i, Context ctxt, float x, float y){
         info = i;
         context = ctxt;
         puntos = vectores;
@@ -78,7 +76,23 @@ public class OpenGLRenderer implements Renderer{
         glEtiquetas = new GLText( gl, context.getAssets() );
         glEtiquetas.load("Roboto-Regular.ttf", 14, 2, 2);
         cuadrante = new graficaCuadrantes3D(info);
-        punto = new graficaPunto(info);
+        punto = new ArrayList<>();
+
+        /**
+         * Si hay mas de un punto lo grafica de otra forma solo grafica el existente.
+         */
+        /*if (puntos != null && !puntos.isEmpty()){
+
+        } else {
+            punto.add(new graficaPunto(info));
+        }*/
+        Iterator iterVect = puntos.iterator();
+        Vectores proxVect;
+
+        while (iterVect.hasNext()){
+            proxVect = (Vectores)iterVect.next();
+            punto.add(new graficaPunto(proxVect));
+        }
     }
 
     /*
@@ -99,11 +113,21 @@ public class OpenGLRenderer implements Renderer{
         gl.glTranslatef(0, 0, -4);
         gl.glRotatef(30f, 1.0f, 0.0f, 0.0f);
         gl.glRotatef(-25f, 0.0f, 1.0f, 0.0f);
+        graficaPunto proxPunto = null;
+        Iterator iterGrafPuntos = punto.iterator();
+        graficaPunto puntoActual = (graficaPunto) iterGrafPuntos.next();
 
         cuadrante.draw(gl);
-        punto.draw(gl);
+        while (iterGrafPuntos.hasNext()){
+            proxPunto = (graficaPunto)iterGrafPuntos.next();
+            proxPunto.draw(gl);
+        }
+
+        puntoActual.draw(gl);
+        this.dibujaTexto(gl, puntoActual.getX_recurso());
+        //punto.draw(gl);
         //botonSalvar.draw(gl);
-        this.dibujaTexto(gl, punto.getX_recurso());
+        //this.dibujaTexto(gl, proxPunto.getX_recurso());
     }
 
     /*

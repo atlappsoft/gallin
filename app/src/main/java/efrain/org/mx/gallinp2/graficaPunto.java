@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
+import java.util.ArrayList;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -26,6 +27,7 @@ public class graficaPunto {
     private float x_recurso;
     private float y_nivel;
     private float z_voc;
+    private glGrafica_Activity.Vectores puntos;
     // Our vertices.
     private float vertices[] = {
             0.2f,  0.2f, 0.5f
@@ -60,12 +62,24 @@ public class graficaPunto {
         indexBuffer.position(0);
     }
 
+    public graficaPunto(glGrafica_Activity.Vectores pts){
+        puntos = pts;
+
+        // short is 2 bytes, therefore we multiply the number if
+        // vertices with 2.
+        ByteBuffer ibb = ByteBuffer.allocateDirect(indices.length * 2);
+        ibb.order(ByteOrder.nativeOrder());
+        indexBuffer = ibb.asShortBuffer();
+        indexBuffer.put(indices);
+        indexBuffer.position(0);
+    }
+
     /**
      * Devuelve el valor de x del punto.
      * @return
      */
     public float getX_recurso(){
-        return this.x_recurso;
+        return puntos.getX();
     }
 
     /**
@@ -73,7 +87,7 @@ public class graficaPunto {
      * @return
      */
     public float getY_nivel(){
-        return y_nivel;
+        return puntos.getY();
     }
 
     /**
@@ -81,7 +95,7 @@ public class graficaPunto {
      * @return
      */
     public float getZ_voc() {
-        return z_voc;
+        return puntos.getZ();
     }
 
     /**
@@ -89,50 +103,9 @@ public class graficaPunto {
      * @param gl
      */
     public void draw(GL10 gl) {
-        x_recurso = 0.0f;
-        y_nivel = 0.0f;
-        z_voc = 0.0f;
 
-        if(nivel.equals(lic)){
-            y_nivel = 50.0f;
-        } else if(nivel.equals(esp)){
-            y_nivel = 100.0f;
-        } else if(nivel.equals(maest)){
-            y_nivel = 150.0f;
-        } else if(nivel.equals(doc)){
-            y_nivel = 190.0f;
-        }
-
-
-        switch (recurso){
-            case "Books":
-                x_recurso = 50.0f;
-                break;
-            case "Journals":
-                x_recurso = 100.0f;
-                break;
-            case "Databases":
-                x_recurso = 150.0f;
-                break;
-            case "Metasearch engines":
-                x_recurso = 190.0f;
-        }
-
-        switch (fuente_voc){
-            case "Controlled Vocabulary":
-                z_voc = 100.0f;
-                break;
-            case "Natural Language":
-                z_voc = -100.0f;
-                break;
-        }
-        switch (fuente_rec){
-            case "Google, Wikipedia, Yahoo, other search engines":
-                x_recurso = x_recurso*-1;
-                break;
-        }
-
-        float puntoGallin[] = {x_recurso, y_nivel, z_voc};
+        //float puntoGallin[] = {x_recurso, y_nivel, z_voc};
+        float puntoGallin[] = {puntos.getX(), puntos.getY(), puntos.getZ()};
         ByteBuffer vbb = ByteBuffer.allocateDirect(puntoGallin.length * 4);
         vbb.order(ByteOrder.nativeOrder());
         vertexBuffer = vbb.asFloatBuffer();
@@ -162,7 +135,7 @@ public class graficaPunto {
         gl.glDisable(GL10.GL_CULL_FACE);
 
         // Dibuja las perpendiculares de los ejes ortogonales al punto.
-        this.dibujaPerpenciulares(gl, x_recurso, y_nivel, z_voc);
+        this.dibujaPerpenciulares(gl, puntos.getX(), puntos.getY(), puntos.getZ());
     }
 
     public void dibujaPerpenciulares(GL10 gl, float x, float y, float z){

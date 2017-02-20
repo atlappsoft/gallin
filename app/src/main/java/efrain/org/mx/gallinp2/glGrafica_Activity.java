@@ -3,24 +3,16 @@ package efrain.org.mx.gallinp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.opengl.GLSurfaceView;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.OrientationHelper;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileOutputStream;
@@ -36,6 +28,7 @@ import static efrain.org.mx.gallinp2.GIPPMainActivity.GALLININFO;
 public class glGrafica_Activity extends AppCompatActivity {
 
     private GALLINSurfaceView view;
+    public static final String VECTORES = "vectores";
     public static Button saveGraph_btn;
     public static final String Lic = "Lic";
     public static final String Esp = "Esp";
@@ -56,6 +49,45 @@ public class glGrafica_Activity extends AppCompatActivity {
     private String maest;
     private String doc;
 
+    /**
+     * Clase que representa el vector de un punto a graficar
+     */
+    public class Vectores{
+        private float x;
+        private float y;
+        private float z;
+
+        public Vectores(float x, float y, float z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public float getX() {
+            return x;
+        }
+
+        public void setX(float x) {
+            this.x = x;
+        }
+
+        public float getY() {
+            return y;
+        }
+
+        public void setY(float y) {
+            this.y = y;
+        }
+
+        public float getZ() {
+            return z;
+        }
+
+        public void setZ(float z) {
+            this.z = z;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,17 +106,24 @@ public class glGrafica_Activity extends AppCompatActivity {
         info.putString(Esp,esp);
         info.putString(Maest,maest);
         info.putString(Doc,doc);
+        ArrayList<Vectores> listaVectores = new ArrayList();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); // (NEW)
         Point size = new Point();
-        /*DisplayMetrics metricas = getResources().getDisplayMetrics();
-        Display screen = getWindowManager().getDefaultDisplay();*/
+
+        /* Agregua el punto actual a graficar*/
+        listaVectores.add(transformaACoordenadas(info,
+                info.getString(MainActivity.NIVEL),
+                info.getString(LluviaActivity.RECURSO),
+                info.getString(vocabulario_Activity.FUENTE_VOC),
+                info.getString(LluviaActivity.FUENTE_REC)));
+
+        Toast.makeText(glGrafica_Activity.this, "Datos: "
+        +info.getString(LluviaActivity.FUENTE_REC),Toast.LENGTH_LONG).show();
 
         // Verificacion si hay datos guardados.
-        //SharedPreferences infoAnterior = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences infoAnterior = getApplicationContext().getSharedPreferences(GALLININFO, Context.MODE_PRIVATE);
-        Toast.makeText(glGrafica_Activity.this,"Datos: "+NOMBRES+" "
-                + CORREOE,Toast.LENGTH_SHORT).show();
+        Toast.makeText(glGrafica_Activity.this,"Datos: "+NOMBRES+" "+ CORREOE,Toast.LENGTH_SHORT).show();
         if( infoAnterior.contains(X_COOR)
                 & infoAnterior.contains(Y_COOR)
                 & infoAnterior.contains(Z_COOR)
@@ -94,6 +133,7 @@ public class glGrafica_Activity extends AppCompatActivity {
             z_ant = infoAnterior.getString(Z_COOR,"");
             zsent_ant = infoAnterior.getString(Z_SENTIDO, "");
             foundDatos = true;
+            listaVectores.add(transformaACoordenadas(info, y_ant, x_ant, z_ant, zsent_ant));
             Toast.makeText(glGrafica_Activity.this,"Datos encontrados",Toast.LENGTH_SHORT).show();
         }
 
@@ -112,6 +152,7 @@ public class glGrafica_Activity extends AppCompatActivity {
         btnparams.weight = 1.0f;
         btnparams.gravity = Gravity.CENTER;
 
+        // Muestra boton "guardar" si no existe datos anteriores.
         if(!foundDatos){
             //saveGraph_btn.setEnabled(false);
             //saveGraph_btn.setActivated(false);
@@ -126,13 +167,13 @@ public class glGrafica_Activity extends AppCompatActivity {
         /**
          * Se llama a la vista que crea la grafica 3D.
          */
-        view = new GALLINSurfaceView(info, this, size.x, size.y);
+        view = new GALLINSurfaceView(listaVectores, info, this, size.x, size.y);
 
+        /**
+         * Se construye las vistas para formar la vista final
+         */
         frmLayout.addView(view);
         frmLayout.addView(rlayout);
-        /*rlayout.addView(frmLayout);
-        frmLayout.addView(view);
-        rlayout.addView(saveGraph);*/
         setContentView(frmLayout);
 
     }
@@ -164,11 +205,10 @@ public class glGrafica_Activity extends AppCompatActivity {
      * Transforma las coordenadas en formato cadena de caracteres a coordenadas de numeros enteros.
      * @param db
      */
-    private void transformaACoordenadas(Bundle db){
-        nivel = db.getString(MainActivity.NIVEL);
-        recurso = db.getString(LluviaActivity.RECURSO);
-        fuente_voc = db.getString(vocabulario_Activity.FUENTE_VOC);
-        fuente_rec = db.getString(LluviaActivity.FUENTE_REC);
+    private glGrafica_Activity.Vectores transformaACoordenadas(Bundle db, String nivel, String recurso, String fuente_voc, String fuente_rec){
+
+        float x,y,z;
+        x = y = z = 0;
         lic = db.getString(glGrafica_Activity.Lic);
         esp = db.getString(glGrafica_Activity.Esp);
         maest = db.getString(glGrafica_Activity.Maest);
@@ -212,6 +252,8 @@ public class glGrafica_Activity extends AppCompatActivity {
                 x = x * -1;
                 break;
         }
+
+        return new Vectores(x, y, z);
     }
 
     /**
@@ -263,10 +305,10 @@ class GALLINSurfaceView extends GLSurfaceView {
         setRenderer(render);
     }
 
-    public GALLINSurfaceView(ArrayList<Integer> vectores, Bundle infoExtra, Context ctxt, float w, float h){
+    public GALLINSurfaceView(ArrayList<glGrafica_Activity.Vectores> vectores, Bundle infoExtra, Context ctxt, float w, float h){
         super(ctxt);
         setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-        render = new OpenGLRenderer(infoExtra, ctxt, w, h);
+        render = new OpenGLRenderer(vectores, infoExtra, ctxt, w, h);
         setRenderer(render);
     }
 
